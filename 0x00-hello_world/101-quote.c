@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include<stdio.h>
 /**
  * main - writes out the values
  * Description: avails the tru values out.
@@ -6,12 +6,8 @@
  */
 int main(void)
 {
-	FILE *fp;
-	char str[] = "and that piece of art is useful - Dora Kopar, 2015-10-19";
+char str1[] = "and that piece of art is useful\"- Dora Korpar, 2015-10-19\n";
 
-	fp = fopen("file.txt", "w");
-	fwrite(str, 2, sizeof(str), fp);
-	fclose(fp);
-
-	return (1);
+write(2, str1, 59);
+return (1);
 }
