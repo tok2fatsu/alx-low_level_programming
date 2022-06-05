@@ -1,32 +1,22 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
-
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
+ * main - generates random number n
+ * Description: determines n is possessive, zero, or negative
+ * Return: 0
  */
 int main(void)
 {
 	int n;
-	int l;
 
-	srand(time(NULL));
+	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-	l = n % 10;
-
-	if (1 > 5)
-	{
-		printf("Last digit of %d is %d and is greater than 5\n", n, l);
-	}
-	else if (1 == 0)
-	{
-		printf("Last digit of %d is %d and is 0\n", n, l);
-	}
-	else if (1 < 6 && l != 0)
-	{
-		printf("Last digit of %d is %d and is less than 6 and not 0\n", n, l);
-	}
+	if (n > 0)
+		printf("%i is positive\n", n);
+	else if (n == 0)
+		printf("%i is zero\n", n);
+	else
+		printf("%i is negative\n", n);
 	return (0);
 }
