@@ -1,9 +1,11 @@
 #include "main.h"
-/
+/**
  * main - entry block
- * @void: no argument
- * Return: 0
- /
+ * void: no argument
+ *
+ *  Return: 0
+ */
+ 
 int main(void)
 {
   char haile[] = "_putchar";
