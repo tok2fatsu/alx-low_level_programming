@@ -1,16 +1,19 @@
-#include <stdio.h>
-/**
- * main - prints _putchar
- * Description: printing a function as a string
+#include "main.h"
+/
+ * main - entry block
+ * @void: no argument
  * Return: 0
- */
-int main()
+ /
+int main(void)
 {
-	char ch[10] = "_putchar";
-	{
-	putchar(ch);
-	putchar('\n');
-	}
-return (0);
-}
+  char haile[] = "_putchar";
 
+  int c;
+
+  for (c = 0; c < 8; c++)
+  {
+    _putchar(haile[c]);
+  }
+  _putchar('\n');
+  return (0);
+}
