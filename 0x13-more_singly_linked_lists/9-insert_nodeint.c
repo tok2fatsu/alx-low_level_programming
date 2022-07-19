@@ -44,7 +44,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 }
 
 /**
- * crt_nw_nd - Creates a new node
+ * create_new_node - Creates a new node
  * @n: Value to add to the new node
  * Return: A pointer to a node
  */
