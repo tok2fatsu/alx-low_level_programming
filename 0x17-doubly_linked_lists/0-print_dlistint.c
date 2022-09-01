@@ -23,7 +23,7 @@ size_t print_dlistint(const dlistint_t *h)
 			i = 0;
 		}
 		printf("%i\n", h->n);
-		h= h->next;
+		h = h->next;
 	}
 	return (i);
 }
