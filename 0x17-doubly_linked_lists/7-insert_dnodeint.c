@@ -1,45 +1,49 @@
 #include "lists.h"
 
 /**
- * insert_dnodeint_at_index - insert new node
- * @h: header of file
- * @idx: index of list
- * @n: given number
- * Return: address of n'th node
+ * insert_dnodeint_at_index - Inserts a node.
+ * @h: Pointer to a pointer to the first node on a linked list.
+ * @idx: Place for node to be inserted.
+ * @n: Number in the node.
+ * Return: The address of the new node, or NULL if it failed
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *new, *headcopy = *h;
-	unsigned int i;
+	dlistint_t *rep;
+	dlistint_t *new;
+	unsigned int counter;
 
-	new = malloc(sizeof(dlistint_t));
+	if (h == NULL || (*h == NULL && idx != 0))
+		return (NULL);
+	new = create_node(n);
 	if (new == NULL)
 		return (NULL);
-	new->n = n;
-	while (headcopy != NULL && headcopy->prev != NULL)
-	{
-		headcopy = headcopy->prev;
-		*h = (*h)->prev;
-	}
+	rep = *h;
 	if (idx == 0)
 	{
-		free(new);
-		return (add_dnodeint(h, n));
+		if (*h == NULL)
+			*h = new;
+		else
+		{
+			new->next = rep;
+			rep->prev = new;
+			*h = new;
+		}
+		return (new);
 	}
-
-	for (i = 0; (i < idx - 1) && headcopy != NULL; i++)
-		headcopy = headcopy->next;
-	if (headcopy == NULL)
+	for (counter = 0; rep->next != NULL || counter + 1 == idx; counter++)
 	{
-		free(new);
-		return (NULL);
+		if (counter + 1 == idx)
+		{
+			if (rep->next != NULL)
+				rep->next->prev = new;
+			new->next = rep->next;
+			rep->next = new;
+			new->prev = rep;
+			return (new);
+		}
+		rep = rep->next;
 	}
-	if (headcopy->next == NULL)
-	{
-		new->next = NULL;
-		new->prev = headcopy;
-		headcopy->next->prev = new;
-		headcopy->next = new;
-	}
-	return (new);
+	free(new);
+	return (NULL);
 }
