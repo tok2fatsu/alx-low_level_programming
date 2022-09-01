@@ -1,8 +1,8 @@
 #include "lists.h"
 
 /**
- * add_doneint - add node at start of list
- * @h: header of list
+ * add_dnodeint - add node at start of a double linked list
+ * @head: header of list
  * @n: number to set a new node
  * Return: address of new node
  */
